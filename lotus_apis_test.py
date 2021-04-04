@@ -358,10 +358,14 @@ def main():
 
     # replace
     ReplaceByFeeRatioDefault = result_MpoolGetConfig["result"]["ReplaceByFeeRatio"]
+    #
+    # SEE: lotus/chain/messagepool/messagepool.go: 179: func ComputeMinRBF(...) {...}
+    # - gas_premium = int( int(gas_premium) + ((int(gas_premium) * ((float(ReplaceByFeeRatioDefault) - 1) * 256)) / 256) )
+    gas_premium = int( int(gas_premium) + ((int(gas_premium) * ((float(ReplaceByFeeRatioDefault) - 1) * 256)) / 256) )
+    #
     #gas_feecap = int(222111) # test
     #gas_premium = int(111222) # test
-    # SEE: lotus/chain/messagepool/messagepool.go: 179: func ComputeMinRBF(...) {...}
-    gas_premium = int( int(gas_premium) + ((int(gas_premium) * ((float(ReplaceByFeeRatioDefault) - 1) * 256)) / 256) )
+    #gas_feecap_int = int(gas_premium + int((float(gas_premium) * 1.25)/100.0) ) # test
     #
     new_ChainGetMessage = result_ChainGetMessage["result"]
     new_ChainGetMessage["GasFeeCap"] = str(gas_feecap) # not int, string here
@@ -397,10 +401,13 @@ def main():
 
             # replace
             ReplaceByFeeRatioDefault = result_MpoolGetConfig["result"]["ReplaceByFeeRatio"]
+            # SEE: lotus/chain/messagepool/messagepool.go: 179: func ComputeMinRBF(...) {...}
+            # - gas_premium = int( int(gas_premium) + ((int(gas_premium) * ((float(ReplaceByFeeRatioDefault) - 1) * 256)) / 256) )
+            gas_premium = int( int(gas_premium) + ((int(gas_premium) * ((float(ReplaceByFeeRatioDefault) - 1) * 256)) / 256) )
+            #
             #gas_feecap = int(222111) # test
             #gas_premium = int(111222) # test
-            # SEE: lotus/chain/messagepool/messagepool.go: 179: func ComputeMinRBF(...) {...}
-            gas_premium = int( int(gas_premium) + ((int(gas_premium) * ((float(ReplaceByFeeRatioDefault) - 1) * 256)) / 256) )
+            #gas_feecap_int = int(gas_premium + int((float(gas_premium) * 1.25)/100.0) ) # test
             #
             new_ChainGetMessage = message["Message"]
             new_ChainGetMessage["GasFeeCap"] = str(gas_feecap) # not int, string here
