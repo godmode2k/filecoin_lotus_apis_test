@@ -14,13 +14,19 @@ Environment
     GNU/Linux: Ubuntu 20.04_x64 LTS
     Filecoin Lotus: (Daemon): 1.5.2+2k+git.a54c6bfb0+api1.1.0, (Local): lotus version 1.5.2+2k+git.a54c6bfb0
     Python: v3.8.5
+    Go: go1.16.2 linux/amd64
     Network: Filecoin Lotus Local devnet
 
 
 Run
 ----------
 ```sh
+// Python version
 $ python3 ./lotus_apis_test.py
+
+// Go version
+$ cd lotus_apis_test_golang
+$ go run ./lotus_apis_example.go
 
 
 
