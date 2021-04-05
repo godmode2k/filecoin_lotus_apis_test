@@ -54,7 +54,10 @@ package types
 
 /*
 //! DO NOT USE THIS
+
 // for Ethereum
+// -------------------------------
+
 type RequestData struct {
     Jsonrpc string `json:"jsonrpc"`
     Method string `json:"method"`
@@ -109,6 +112,21 @@ type Result_block struct {
 }
 */
 
+
+
+// Filecoin
+// -------------------------------
+
+type RequestData struct {
+    Jsonrpc string `json:"jsonrpc"`
+    Method string `json:"method"`
+
+    Params []interface{} `json:"params"`
+    // ["...", "..."]
+    // [{"key": "<value>", "key": "value"}, "..."]
+
+    Id int `json:"id"`
+}
 
 type Results struct {
     Jsonrpc string `json:"jsonrpc"`
