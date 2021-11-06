@@ -5,6 +5,7 @@ Summary
 ----------
 > Filecoin Lotus JSON-RPC Test: </br>
 > Wallet (WalletSignMessage), Mpool, Estimate Gas, Send, Replacing messages, ... </br>
+> Calculates miner rewards (block, fee rewards)
 
 
 Environment
@@ -15,7 +16,7 @@ Environment
     Filecoin Lotus: (Daemon): 1.5.2+2k+git.a54c6bfb0+api1.1.0, (Local): lotus version 1.5.2+2k+git.a54c6bfb0
     Python: v3.8.5
     Go: go1.16.2 linux/amd64
-    Network: Filecoin Lotus Local devnet
+    Network: Filecoin Lotus Local devnet, Mainnet (Lotus v1.13.0)
 
 
 Run
@@ -85,6 +86,14 @@ message =
 [{'To': 't3sm2ujbr5dw6wjff3zz7bplrupon4el35qab2b2iokvn5o5q5co2i2jos3hphdeg3x2qnzikh7qyfczdnww3q', 'From': 't1ce6kwh5rdu3pmvp6rb4z2ge65ryafnl7ciqr5yy', 'Value': '2000000000000000000', 'GasLimit': 0, 'GasFeeCap': '0', 'GasPremium': '0'}, {'MaxFee': '0'}]
 
 result_MpoolPushMessage = {'jsonrpc': '2.0', 'result': {'Message': {'Version': 0, 'To': 't3sm2ujbr5dw6wjff3zz7bplrupon4el35qab2b2iokvn5o5q5co2i2jos3hphdeg3x2qnzikh7qyfczdnww3q', 'From': 't1ce6kwh5rdu3pmvp6rb4z2ge65ryafnl7ciqr5yy', 'Nonce': 1, 'Value': '2', 'GasLimit': 2711147, 'GasFeeCap': '100471', 'GasPremium': '99417', 'Method': 0, 'Params': None, 'CID': {'/': 'bafy2bzacecuwkzzrmpmgb4jjl3beainzbzxy4vy4gxqg4lppba7e47uazjhau'}}, 'Signature': {'Type': 1, 'Data': 'vYg5Kd/pl/ekwbU0Wiv0S2IiLHgSjXRcwkoCWOhSagR9EkPQvfMkPS7XLmmPVnuS4R7BsDaeqaBhDvOACFavkwE='}, 'CID': {'/': 'bafy2bzaced4bfm3uqtwscqrejs7qixj3lexxneazzwxuawgyz7p6onph72ffe'}}, 'id': 3}
+
+
+
+--------------------------------------
+Miner rewards (block, fee)
+--------------------------------------
+// Python version
+$ python3 ./lotus_apis_miner_rewards_test.py
 ```
 
 
